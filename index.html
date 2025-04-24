@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>  
-    <meta charset = "UTF-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mishplayz Hub</title>
     <style>
         canvas {
@@ -15,14 +16,29 @@
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
+
+        h1 {
+            color: white;
+        }
+
+        h2 {
+            color: white;
+        }
     </style>
 </head>
 <body>
     <h1>Mishplayz Chill Hub</h1>
-    <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy !</h2>
-    <canvas id = "gameCanvas" width = 1400, height = 800>
-        <script src="Main.js"></script>
-    <canvas id = "frame" width = 1400, height = 800>
-        <script src="pong.js"></script>
+    <h2>Some Iconic Games Remade by me, Kaushal Mishra using HTML, JavaScript, and Python. Enjoy!</h2>
+    
+    <!-- Game Canvas for your game -->
+    <canvas id="gameCanvas" width="1400" height="800"></canvas>
+
+    <!-- Separate frame canvas for pong -->
+    <canvas id="frame" width="1400" height="800"></canvas>
+
+    <!-- Linking your JavaScript files -->
+    <script src="Main.js"></script> <!-- Your primary JavaScript file -->
+    <script src="pong.js"></script> <!-- Your pong game JavaScript file -->
+
 </body>
 </html>

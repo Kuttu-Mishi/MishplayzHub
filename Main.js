@@ -88,7 +88,7 @@ function shoot() {
 
 function spawnEnemy() {
   const x = Math.random() * (canvas.width - enemySize.width);
-  enemies.push({ x: x, y: Math.random() * 100 });
+  enemies.push({ x: x, y: Math.random() * 200 });
 }
 
 function checkCollision(a, b) {
@@ -155,7 +155,7 @@ function update() {
 
   // Spawn new enemy every ~1 second
   enemySpawnTimer++;
-  if (enemySpawnTimer >= 50) {
+  if (enemySpawnTimer >= 80) {
     spawnEnemy();
     enemySpawnTimer = 0;
   }

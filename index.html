@@ -21,64 +21,26 @@
         h1, h2 {
             color: white;
         }
-
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <h1>Mishplayz Chill Hub</h1>
     <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy!</h2>
 
-    <!-- Button to start Main Game -->
-    <button onclick="showGame('mainGame')">Play Main Game</button>
-
-    <!-- Button to start Pong -->
-    <button onclick="showGame('pongGame')">Play Pong</button>
-
-    <!-- Main Menu Button -->
-    <button onclick="goBack()" class="hidden" id="backButton">Go Back</button>
-
-    <!-- Main Game Canvas -->
-    <canvas id="gameCanvas" width="1400" height="800" class="hidden"></canvas>
+    <!-- Game Canvas for Main Game -->
+    <canvas id="gameCanvas" width="1400" height="800"></canvas>
     <script src="Main.js"></script>
 
-    <!-- Pong Game Canvas -->
-    <canvas id="frame" width="1400" height="800" class="hidden"></canvas>
+    <!-- Game Canvas for Pong -->
+    <canvas id="frame" width="1400" height="800"></canvas>
     <script src="Pong.js"></script>
 
     <!-- Embedded Soccer Pinball -->
     <div style="margin-top: 20px;">
         <script src="https://cdn.htmlgames.com/embed.js?game=SoccerPinball&bgcolor=white"></script>
     </div>
-
-    <script>
-        // Function to switch to the selected game
-        function showGame(game) {
-            // Hide all canvases and buttons
-            document.querySelectorAll('canvas').forEach(canvas => canvas.classList.add('hidden'));
-            document.getElementById('backButton').classList.remove('hidden');
-            
-            if (game === 'mainGame') {
-                document.getElementById('gameCanvas').classList.remove('hidden');
-            } else if (game === 'pongGame') {
-                document.getElementById('frame').classList.remove('hidden');
-            }
-        }
-
-        // Go back to the main menu
-        function goBack() {
-            document.getElementById('backButton').classList.add('hidden');
-            document.querySelectorAll('canvas').forEach(canvas => canvas.classList.add('hidden'));
-        }
-    </script>
+    <div>
+        <script src="https://cdn.htmlgames.com/embed.js?game=AirportSniper&bgcolor=white"></script>
+    </div>
 </body>
 </html>

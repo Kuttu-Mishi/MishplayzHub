@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>  
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mishplayz Hub</title>
     <style>
         canvas {
@@ -11,26 +12,32 @@
             border: 20px solid black;
         }
 
-        canvas {
-            background-color: brown;
-            display: block;
-            margin: 0 auto;
-            border: 20px solid black;
-        }
-
         body {
             text-align: center;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+                         'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1, h2 {
+            color: white;
         }
     </style>
 </head>
 <body>
     <h1>Mishplayz Chill Hub</h1>
-    <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy !</h2>
-    <canvas id = "gameCanvas" width = 1400, height = 800></canvas>
-        <script src="Main.js"></script>
-    <canvas id = "frame" width = 1400, height = 800></canvas>
-        <script src="Pong.js"></script>
-        <script src="https://cdn.htmlgames.com/embed.js?game=SoccerPinball&amp;bgcolor=white"></script>
+    <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy!</h2>
+
+    <!-- Game Canvas for Main Game -->
+    <canvas id="gameCanvas" width="1400" height="800"></canvas>
+    <script src="Main.js"></script>
+
+    <!-- Game Canvas for Pong -->
+    <canvas id="frame" width="1400" height="800"></canvas>
+    <script src="Pong.js"></script>
+
+    <!-- Embedded Soccer Pinball -->
+    <div style="margin-top: 20px;">
+        <script src="https://cdn.htmlgames.com/embed.js?game=SoccerPinball&bgcolor=white"></script>
+    </div>
 </body>
 </html>

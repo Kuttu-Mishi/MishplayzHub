@@ -1,4 +1,4 @@
-const canvas = document.getElementBy("frame")
+const canvas = document.getElementById("frame")
 const ctx = canvas.getContext("2d")
 
 //Players

@@ -45,4 +45,8 @@ const p1 = {
   ctx.stroke();
   }
 
+ctx.fillStyle = "black";
+ctx.fillRect(100, 100, 100, 100); // test box to see if drawing works
+
+    drawp1()
   

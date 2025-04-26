@@ -14,6 +14,7 @@
 
         body {
             text-align: center;
+            background-color: black;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
                          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
@@ -21,25 +22,50 @@
         h1, h2 {
             color: white;
         }
+
+        .game-buttons {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <h1>Mishplayz Chill Hub</h1>
-    <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy!</h2>
+    <h2>Iconic Games Remade by Kaushal Mishra using HTML, JavaScript, and Python. Enjoy!</h2>
 
-    <!-- Game Canvas for Main Game -->
+    <!-- Game Controls -->
+    <div class="game-buttons">
+        <button onclick="startMain()">Play Main Game</button>
+        <button onclick="startPong()">Play Pong</button>
+    </div>
+
+    <!-- Only One Canvas -->
     <canvas id="gameCanvas" width="1400" height="800"></canvas>
-    <script src="Main.js"></script>
 
-    <!-- Game Canvas for Pong -->
-    <canvas id="frame" width="1400" height="800"></canvas>
-    <script src="Pong.js"></script>
-    
+    <!-- External Mini Games Embed -->
     <div style="margin-top: 20px;">
         <script src="https://cdn.htmlgames.com/embed.js?game=SoccerPinball&bgcolor=white"></script>
     </div>
     <div>
         <script src="https://cdn.htmlgames.com/embed.js?game=AirportSniper&bgcolor=white"></script>
     </div>
+
+    <!-- Game Scripts (add your own logic in these files) -->
+    <script src="Main.js"></script>
+    <script src="Pong.js"></script>
 </body>
 </html>

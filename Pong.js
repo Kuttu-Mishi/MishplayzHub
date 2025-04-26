@@ -28,6 +28,8 @@ const p1 = {
     speed: 7
   };
 
+  const keys = {};
+
   window.addEventListener("keydown", (e) => {
     keys[e.key] = true;
     if (gameOver && e.key.toLowerCase() === "w") restartGame();
@@ -38,15 +40,20 @@ const p1 = {
   });
 
   function drawp1() {
-  ctx.beginPath();
-  ctx.arc(player.x + player.width / 2, player.y + player.height, player.width / 2, Math.PI, 0);
-  ctx.fillStyle = player.color;
-  ctx.fill();
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.rect(p1.x, p1.y, p1.width, p1.height);
+    ctx.fillStyle = p1.color;
+    ctx.fill();
+    ctx.stroke();
   }
-
-ctx.fillStyle = "black";
-ctx.fillRect(100, 100, 100, 100); // test box to see if drawing works
-
-    drawp1()
   
+  function drawp2() {
+    ctx.beginPath();
+    ctx.rect(p2.x, p2.y, p2.width, p2.height);
+    ctx.fillStyle = p2.color;
+    ctx.fill();
+    ctx.stroke();
+  }  
+
+  drawp1()
+  drawp2()

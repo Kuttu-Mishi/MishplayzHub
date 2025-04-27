@@ -32,6 +32,10 @@ const ball = {
   dy: 3
 };
 
+let ballColor = '#ecf0f1';
+let gameOver = false;
+let winner = '';
+
 window.addEventListener('keydown', e => keys[e.key] = true);
 window.addEventListener('keyup', e => keys[e.key] = false);
 
@@ -56,12 +60,27 @@ function drawNet() {
   }
 }
 
+function drawScores() {
+  ctx.fillStyle = "#000";
+  ctx.font = "48px Arial";
+  ctx.fillText(player1.score, canvas.width / 4, 50);
+  ctx.fillText(player2.score, canvas.width * 3/4, 50);
+}
+
+function drawGameOver() {
+  ctx.fillStyle = "black";
+  ctx.font = "80px Arial";
+  ctx.fillText(`${winner} Wins!`, canvas.width/2 - 200, canvas.height/2);
+}
+
 function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
-  ball.dx = -ball.dx;
   ball.speed = 5;
-  ball.dy = 3 * (Math.random() > 0.5 ? 1 : -1);
+  let angle = Math.random() * Math.PI / 4 - Math.PI / 8; // random -22.5 to +22.5 degrees
+  let direction = (Math.random() > 0.5 ? 1 : -1);
+  ball.dx = direction * ball.speed * Math.cos(angle);
+  ball.dy = ball.speed * Math.sin(angle);
 }
 
 function draw() {
@@ -69,14 +88,22 @@ function draw() {
   drawNet();
   drawRect(player1.x, player1.y, player1.width, player1.height, '#e74c3c');
   drawRect(player2.x, player2.y, player2.width, player2.height, '#3498db');
-  drawArc(ball.x, ball.y, ball.radius, '#ecf0f1');
+  drawArc(ball.x, ball.y, ball.radius, ballColor);
+  drawScores();
+  if (gameOver) {
+    drawGameOver();
+  }
 }
 
 function update() {
+  if (gameOver) return;
+
+  // Player 1 controls
   if (keys['w']) player1.dy = -player1.speed;
   else if (keys['s']) player1.dy = player1.speed;
   else player1.dy = 0;
 
+  // Player 2 controls
   if (keys['ArrowUp']) player2.dy = -player2.speed;
   else if (keys['ArrowDown']) player2.dy = player2.speed;
   else player2.dy = 0;
@@ -84,12 +111,14 @@ function update() {
   player1.y += player1.dy;
   player2.y += player2.dy;
 
+  // Clamp paddles inside canvas
   player1.y = Math.max(Math.min(player1.y, canvas.height - player1.height), 0);
   player2.y = Math.max(Math.min(player2.y, canvas.height - player2.height), 0);
 
   ball.x += ball.dx;
   ball.y += ball.dy;
 
+  // Ball collision with top/bottom
   if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
     ball.dy = -ball.dy;
   }
@@ -104,20 +133,28 @@ function update() {
   if (collide(player1) && ball.dx < 0) {
     ball.dx = -ball.dx;
     ball.speed += 0.5;
+    ballColor = '#' + Math.floor(Math.random()*16777215).toString(16); // random color
     ball.dx = (ball.dx > 0 ? 1 : -1) * ball.speed;
   } else if (collide(player2) && ball.dx > 0) {
     ball.dx = -ball.dx;
     ball.speed += 0.5;
+    ballColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     ball.dx = (ball.dx > 0 ? 1 : -1) * ball.speed;
   }
 
   if (ball.x - ball.radius < 0) {
     player2.score++;
-    console.log(`Player 2 Score: ${player2.score}`);
+    if (player2.score >= 5) {
+      gameOver = true;
+      winner = "Player 2";
+    }
     resetBall();
   } else if (ball.x + ball.radius > canvas.width) {
     player1.score++;
-    console.log(`Player 1 Score: ${player1.score}`);
+    if (player1.score >= 5) {
+      gameOver = true;
+      winner = "Player 1";
+    }
     resetBall();
   }
 }

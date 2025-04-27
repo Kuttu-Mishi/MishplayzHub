@@ -26,9 +26,26 @@
 <body>
     <h1>Mishplayz Chill Hub</h1>
     <h2>Some Iconic Games Remade by me Kaushal Mishra using HTML, Javascript and Python, Enjoy!</h2>
-
-    <canvas id="frame" width="1400" height="800"></canvas>
+    
+    <canvas id="gameCanvas" width="1400" height="800"></canvas>
+    <script src="Main.js"></script>
+    
+    <canvas id="frame" width="1400" height="800" style="display: none;"></canvas>
     <script src="Pong.js"></script>
+
+    <button onclick = "showMain()">Play Shooter</button>
+    <button onclick = "showPong()">Play Pong</button>
+    <script>
+        function showMain() {
+        document.getElementById('gameCanvas').style.display = 'block';
+        document.getElementById('frame').style.display = 'none';
+        }
+
+        function showPong() {
+        document.getElementById('gameCanvas').style.display = 'none';
+        document.getElementById('frame').style.display = 'block';
+        }
+    </script>
 
     <div style="margin-top: 20px;">
         <script src="https://cdn.htmlgames.com/embed.js?game=SoccerPinball&bgcolor=white"></script>

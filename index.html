@@ -28,8 +28,8 @@
     <button onclick="showMain()">Play Shooter</button>
     <button onclick="showPong()">Play Pong</button>
 
-    <canvas id="PongCanvas" width="1400" height="800"></canvas>
-    <canvas id="gameCanvas" width="1400" height="800" style="display: none;"></canvas>
+    <canvas id="gameCanvas" width="1400" height="800"></canvas>
+    <canvas id="pongCanvas" width="1400" height="800" style="display: none;"></canvas>
 
     <div style="margin-top: 20px;">
         <iframe src="https://cdn.htmlgames.com/SoccerPinball/" width="800" height="600" frameborder="0" scrolling="no"></iframe>
@@ -42,12 +42,12 @@
     <script src="Pong.js"></script>
     <script>
         function showMain() {
-            document.getElementById('gameCanvas').style.display = 'none';
-            document.getElementById('pongCanvas').style.display = 'blcok';
-        }
-        function showPong() {
             document.getElementById('gameCanvas').style.display = 'block';
             document.getElementById('pongCanvas').style.display = 'none';
+        }
+        function showPong() {
+            document.getElementById('gameCanvas').style.display = 'none';
+            document.getElementById('pongCanvas').style.display = 'block';
         }
     </script>
 </body>

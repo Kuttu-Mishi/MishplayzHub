@@ -1,4 +1,4 @@
-const canvas = document.getElementById("frame");
+const canvas = document.getElementById("pongCanvas");
 const ctx = canvas.getContext("2d");
 
 const keys = {};

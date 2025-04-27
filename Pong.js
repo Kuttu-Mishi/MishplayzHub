@@ -6,8 +6,8 @@ const keys = {};
 const p1 = {
   x: canvas.width / 2 - 100,
   y: canvas.height - 130,
-  width: 70,
-  height: 120,
+  width: 10,
+  height: 50,
   color: "red",
   speed: 10
 };
@@ -15,8 +15,8 @@ const p1 = {
 const p2 = {
   x: canvas.width / 2 + 100,
   y: canvas.height - 130,
-  width: 70,
-  height: 120,
+  width: 10,
+  height: 50,
   color: "blue",
   speed: 10
 };

@@ -141,7 +141,9 @@ function startGame() {
       if (p1.score >= 5 || p2.score >= 5) {
         gameOver = true;
         setTimeout(() => {
-          alert("Game Over! Press Enter to restart.");
+          ctx.fillStyle = "black";
+          ctx.font = "30px Arial";
+          ctx.fillText("Game Over! Press Enter to restart.", canvas.width / 2 - 150, canvas.height / 2);
         }, 100);
       }
     }

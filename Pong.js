@@ -4,8 +4,8 @@ const ctx = canvas.getContext("2d");
 const keys = {};
 
 const p1 = {
-  x: canvas.width / 2 - 100,
-  y: canvas.height - 130,
+  x: 5,
+  y: 300,
   width: 0,
   height: 50,
   color: "red",
@@ -13,8 +13,8 @@ const p1 = {
 };
 
 const p2 = {
-  x: canvas.width / 2 + 100,
-  y: canvas.height - 130,
+  x: 795,
+  y: 300,
   width: 10,
   height: 50,
   color: "blue",
@@ -22,8 +22,8 @@ const p2 = {
 };
 
 const ball = {
-  x: canvas.width / 2,
-  y: canvas.height - 130,
+  x: 400,
+  y: 300,
   radius: 15,
   color: "white",
   speed: 7
@@ -55,5 +55,15 @@ function drawp2() {
   ctx.stroke();
 }
 
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+  ctx.fillStyle = ball.color;
+  ctx.fill();
+  ctx.stroke();
+}
+
 drawp1();
 drawp2();
+
+

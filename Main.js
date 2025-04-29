@@ -48,7 +48,7 @@ function drawPlayer() {
 }
 
 function drawBullet(bullet) {
-  ctx.fillStyle = "blue";
+  ctx.fillStyle = "cyan";
   ctx.fillRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
   ctx.strokeRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
 }

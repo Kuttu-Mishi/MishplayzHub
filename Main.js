@@ -91,12 +91,12 @@ function spawnEnemy() {
   enemies.push({ x: x, y: Math.random() * 200 });
 }
 
-function checkCollision(a, b) {
+function checkCollision(a, b, aSize, bSize) {
   return (
-    a.x < b.x + enemySize.width &&
-    a.x + bulletSize.width > b.x &&
-    a.y < b.y + enemySize.height &&
-    a.y + bulletSize.height > b.y
+    a.x < b.x + bSize.width &&
+    a.x + aSize.width > b.x &&
+    a.y < b.y + bSize.height &&
+    a.y + aSize.height > b.y
   );
 }
 
@@ -124,13 +124,10 @@ function update() {
     enemies[i].y += enemySpeed;
 
     // Collision with player
-    if (
-      enemies[i].x < player.x + player.width &&
-      enemies[i].x + enemySize.width > player.x &&
-      enemies[i].y + enemySize.height > player.y
-    ) {
+    if (checkCollision(enemies[i], player, enemySize, {width: player.width, height: player.height})) {
       gameOver = true;
     }
+    
 
     // Enemy reached bottom
     if (enemies[i].y > canvas.height) {

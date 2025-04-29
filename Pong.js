@@ -6,20 +6,20 @@ const ctx = canvas.getContext("2d");
 const keys = {};
 
 const p1 = {
-  x: 5,
+  x: 10,
   y: 300,
-  width: 10,
-  height: 50,
+  width: 20,
+  height: 70,
   color: "red",
   speed: 10,
   score: 0
 };
 
 const p2 = {
-  x: 1195,
+  x: 1190,
   y: 300,
-  width: 10,
-  height: 50,
+  width: 20,
+  height: 70,
   color: "blue",
   speed: 10,
   score: 0
@@ -29,8 +29,9 @@ const ball = {
   x: 600,
   y: 300,
   radius: 15,
-  color: "white",
-  speed: 7
+  color: "black",
+  xspeed: 7,
+  yspeed: 7,
 };
 
 // Key listeners
@@ -42,7 +43,24 @@ window.addEventListener("keyup", (e) => {
   keys[e.key] = false;
 });
 
-// Drawing functions
+function loop() {
+  ball.x += ball.xspeed;
+  ball.y += ball.yspeed;
+
+  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+    ball.yspeed = -ball.yspeed;
+  }
+  if (ball.x + ball.radius > canvas.width) {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    p1.score++;
+  } else if (ball.x - ball.radius < 0) {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    p2.score++;
+  }
+}
+
 function drawp1() {
   ctx.beginPath();
   ctx.rect(p1.x, p1.y, p1.width, p1.height);
@@ -70,8 +88,8 @@ function drawBall() {
 function drawScore() {
   ctx.font = "20px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("player 1: " + p1.score, 10, 20);
-  ctx.fillText("player 2: " + p2.score, canvas.width - 100, 20);
+  ctx.fillText("p1 score: " + p1.score, 10, 20);
+  ctx.fillText("p2 score: " + p2.score, canvas.width - 100, 20);
 }
 
 function loop() {

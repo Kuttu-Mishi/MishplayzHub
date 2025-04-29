@@ -43,23 +43,13 @@ window.addEventListener("keyup", (e) => {
   keys[e.key] = false;
 });
 
-function loop() {
-  ball.x += ball.xspeed;
-  ball.y += ball.yspeed;
-
-  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.yspeed = -ball.yspeed;
-  }
-  if (ball.x + ball.radius > canvas.width) {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
-    p1.score++;
-  } else if (ball.x - ball.radius < 0) {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
-    p2.score++;
-  }
+function resetBall() {
+  ball.x = canvas.width / 2;
+  ball.y = canvas.height / 2;
+  ball.xspeed = (Math.random() > 0.5 ? 1 : -1) * 7;
+  ball.yspeed = (Math.random() > 0.5 ? 1 : -1) * 7;
 }
+
 
 function drawp1() {
   ctx.beginPath();
@@ -101,6 +91,40 @@ function loop() {
   if (keys["ArrowUp"] && p2.y > 0) p2.y -= p2.speed;
   if (keys["ArrowDown"] && p2.y < canvas.height - p2.height) p2.y += p2.speed;
 
+  ball.x += ball.xspeed;
+  ball.y += ball.yspeed;
+
+  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+    ball.yspeed = -ball.yspeed;
+  }
+
+  if (
+    ball.x - ball.radius < p1.x + p1.width &&
+    ball.y > p1.y &&
+    ball.y < p1.y + p1.height
+  ) {
+    ball.xspeed = -ball.xspeed;
+    ball.x = p1.x + p1.width + ball.radius;
+  }
+
+  if (
+    ball.x + ball.radius > p2.x &&
+    ball.y > p2.y &&
+    ball.y < p2.y + p2.height
+  ) {
+    ball.xspeed = -ball.xspeed;
+    ball.x = p2.x - ball.radius;
+  }
+
+  if (ball.x - ball.radius < 0) {
+    p2.score++;
+    resetBall();
+  }
+
+  if (ball.x + ball.radius > canvas.width) {
+    p1.score++;
+    resetBall();
+  }
 
   drawp1();
   drawp2();

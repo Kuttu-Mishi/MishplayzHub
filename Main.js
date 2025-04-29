@@ -155,7 +155,7 @@ function update() {
 
   // Spawn new enemy every ~1 second
   enemySpawnTimer++;
-  if (enemySpawnTimer >= 80) {
+  if (enemySpawnTimer >= 100) {
     spawnEnemy();
     enemySpawnTimer = 0;
   }

@@ -49,18 +49,30 @@
 
     <script src="Main.js"></script>
     <script src="Pong.js"></script>
+    <script> src="2ps.js"</script>
 
     <script>
         function showMain() {
             document.getElementById('gameCanvas').style.display = 'block';
             document.getElementById('pongCanvas').style.display = 'none';
+            document.getElementById('2psCanvas').style.display = 'none';
         }
 
         function showPong() {
             document.getElementById('gameCanvas').style.display = 'none';
             document.getElementById('pongCanvas').style.display = 'block';
+            document.getElementById('2psCanvas').style.display = 'none';
             if (typeof startGame === "function") {
                 startGame();  // This should be defined in Pong.js
+            }
+        }
+
+        function show2ps() {
+            document.getElementById('gameCanvas').style.display = 'none';
+            document.getElementById('pongCanvas').style.display = 'none';
+            document.getElementById('2psCanvas').style.display = 'block';
+            if (typeof startGame === "function") {
+                start2ps();  // This should be defined in Pong.js
             }
         }
     </script>

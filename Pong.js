@@ -1,3 +1,5 @@
+
+function startGame() {
 const canvas = document.getElementById("pongCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -9,7 +11,8 @@ const p1 = {
   width: 10,
   height: 50,
   color: "red",
-  speed: 10
+  speed: 10,
+  score: 0
 };
 
 const p2 = {
@@ -18,7 +21,8 @@ const p2 = {
   width: 10,
   height: 50,
   color: "blue",
-  speed: 10
+  speed: 10,
+  score: 0
 };
 
 const ball = {
@@ -86,4 +90,5 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
-
+loop();
+}

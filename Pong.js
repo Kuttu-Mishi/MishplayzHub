@@ -16,7 +16,7 @@ const p1 = {
 };
 
 const p2 = {
-  x: 1190,
+  x: 1100,
   y: 300,
   width: 20,
   height: 70,

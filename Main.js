@@ -124,10 +124,13 @@ function update() {
     enemies[i].y += enemySpeed;
 
     // Collision with player
-    if (checkCollision(enemies[i], player, enemySize, {width: player.width, height: player.height})) {
+    if (
+      enemies[i].x < player.x + player.width &&
+      enemies[i].x + enemySize.width > player.x &&
+      enemies[i].y + enemySize.height > player.y
+    ) {
       gameOver = true;
     }
-    
 
     // Enemy reached bottom
     if (enemies[i].y > canvas.height) {

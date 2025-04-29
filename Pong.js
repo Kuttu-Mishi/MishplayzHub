@@ -16,7 +16,7 @@ const p1 = {
 };
 
 const p2 = {
-  x: 795,
+  x: 1195,
   y: 300,
   width: 10,
   height: 50,
@@ -26,7 +26,7 @@ const p2 = {
 };
 
 const ball = {
-  x: 400,
+  x: 600,
   y: 300,
   radius: 15,
   color: "white",
@@ -69,7 +69,7 @@ function drawBall() {
 
 function drawScore() {
   ctx.font = "20px Arial";
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.fillText("player 1: " + p1.score, 10, 20);
   ctx.fillText("player 2: " + p2.score, canvas.width - 100, 20);
 }
@@ -82,6 +82,7 @@ function loop() {
 
   if (keys["ArrowUp"] && p2.y > 0) p2.y -= p2.speed;
   if (keys["ArrowDown"] && p2.y < canvas.height - p2.height) p2.y += p2.speed;
+
 
   drawp1();
   drawp2();

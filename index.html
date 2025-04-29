@@ -7,7 +7,7 @@
     <style>
         canvas {
             background-color: white;
-            display: block;
+            display: none;
             margin: 0 auto;
             border: 20px solid cyan;
         }
@@ -15,28 +15,36 @@
             text-align: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
                          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: black;
         }
         h1, h2 {
             color: white;
         }
+        button {
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
     </style>
 </head>
-<body style = "background-color: black;">
+<body>
     <h1>Mishplayz Chill Hub</h1>
     <h2>Some Iconic Games Remade by Kaushal Mishra using HTML, JavaScript, and Python. Enjoy!</h2>
     <h2>Click on the buttons below to play the games:</h2>
 
-    <button style = "background-color: red; height: 60px; width: 140px;" onclick="showMain()">Play Shooter A, D to move and W to shoot, have fun !</button>
-    <button style = "background-color: cyan; height: 60px; width: 140px;" onclick="showPong()">Play Pong, W, S for p1 and L, P for p2, have fun !</button>
+    <button style="background-color: red; height: 60px; width: 280px;" onclick="showMain()">Play Shooter (A, D to move and W to shoot)</button>
+    <button style="background-color: cyan; height: 60px; width: 280px;" onclick="showPong()">Play Pong (W, S for P1 and L, P for P2)</button>
     
     <canvas id="gameCanvas" width="1200" height="600"></canvas>
     <canvas id="pongCanvas" width="1200" height="600"></canvas>    
 
     <div style="margin-top: 20px;">
-        <iframe src="https://cdn.htmlgames.com/SoccerPinball/" width="1200" height="600" frameborder="20" scrolling="no"></iframe>
+        <iframe src="https://cdn.htmlgames.com/SoccerPinball/" width="1200" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
     <div style="margin-top: 20px;">
-        <iframe src="https://cdn.htmlgames.com/AirportSniper/" width="1200" height="600" frameborder="20" scrolling="no"></iframe>
+        <iframe src="https://cdn.htmlgames.com/AirportSniper/" width="1200" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <script src="Main.js"></script>
@@ -47,10 +55,13 @@
             document.getElementById('gameCanvas').style.display = 'block';
             document.getElementById('pongCanvas').style.display = 'none';
         }
+
         function showPong() {
             document.getElementById('gameCanvas').style.display = 'none';
             document.getElementById('pongCanvas').style.display = 'block';
-            startGame();
+            if (typeof startGame === "function") {
+                startGame();  // This should be defined in Pong.js
+            }
         }
     </script>
 </body>

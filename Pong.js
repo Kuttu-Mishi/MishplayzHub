@@ -88,8 +88,8 @@ function loop() {
   if (keys["w"] && p1.y > 0) p1.y -= p1.speed;
   if (keys["s"] && p1.y < canvas.height - p1.height) p1.y += p1.speed;
 
-  if (keys["ArrowUp"] && p2.y > 0) p2.y -= p2.speed;
-  if (keys["ArrowDown"] && p2.y < canvas.height - p2.height) p2.y += p2.speed;
+  if (keys["p"] && p2.y > 0) p2.y -= p2.speed;
+  if (keys["l"] && p2.y < canvas.height - p2.height) p2.y += p2.speed;
 
   ball.x += ball.xspeed;
   ball.y += ball.yspeed;
@@ -133,5 +133,19 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
-loop();
+
+function restartGame() {
+  p1.score = 0;
+  p2.score = 0;
+  resetBall();
 }
+
+if (p1.score >= 5 || p2.score >= 5) {
+  alert("Game Over! Restarting the game.");
+  restartGame();
+}
+  resetBall();
+  loop();
+}
+
+if (keys["enter"]) startGame();

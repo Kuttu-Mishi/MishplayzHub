@@ -1,4 +1,4 @@
-function start2ps() {
+function start2ps() {}
 const canvas = document.getElementById("2psCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -41,4 +41,13 @@ function drawBullet(bullet) {
     ctx.fillRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
     ctx.strokeRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
 }
+
+drawp1();
+drawp2();
+drawBullets();
+function drawBullets() {
+    bullets.forEach(bullet => {
+        drawBullet(bullet);
+    });
+    drawBullets();
 }

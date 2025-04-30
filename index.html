@@ -73,8 +73,10 @@
             document.getElementById('gameCanvas').style.display = 'none';
             document.getElementById('pongCanvas').style.display = 'none';
             document.getElementById('2psCanvas').style.display = 'block';
+            if (typeof start2ps === "function") {
                 start2ps(); 
-}
+            }
+        }
     </script>
 </body>
 </html>

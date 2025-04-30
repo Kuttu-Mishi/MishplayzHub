@@ -26,10 +26,8 @@ function updateBullets() {
     });
 }
 
-window.onload = function () {
-    const canvas = document.getElementById("2psCanvas");
-    const ctx = canvas.getContext("2d");
-
+const canvas = document.getElementById("2psCanvas");
+const ctx = canvas.getContext("2d");
 
 const p1 = {
     x: canvas.width / 2 - 35,
@@ -70,5 +68,5 @@ function drawBullet(bullet) {
     ctx.fillRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
     ctx.strokeRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
 }
-    window.start2ps = start2ps;
-}
+
+start2ps();

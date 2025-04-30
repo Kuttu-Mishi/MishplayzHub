@@ -1,4 +1,31 @@
-function start2ps() {}
+function start2ps() {
+    requestAnimationFrame(gameLoop);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas each frame
+
+    drawp1();
+    drawp2();
+    drawBullets();
+
+    updateBullets();
+
+    requestAnimationFrame(gameLoop); // Loop
+}
+
+function drawBullets() {
+    bullets.forEach(bullet => {
+        drawBullet(bullet);
+    });
+}
+
+function updateBullets() {
+    bullets.forEach(bullet => {
+        bullet.y -= bulletSpeed; // Move up
+    });
+}
+
 const canvas = document.getElementById("2psCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -42,12 +69,4 @@ function drawBullet(bullet) {
     ctx.strokeRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
 }
 
-drawp1();
-drawp2();
-drawBullets();
-function drawBullets() {
-    bullets.forEach(bullet => {
-        drawBullet(bullet);
-    });
-    drawBullets();
-}
+start2ps();

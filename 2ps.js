@@ -59,9 +59,9 @@ function drawBullet(bullet) {
         updateBullets();
         requestAnimationFrame(gameLoop);
     }
-    
+
     gameLoop();
     requestAnimationFrame(gameLoop);
 }
-window.start2ps = start2ps();
+window.start2ps = start2ps;
 }

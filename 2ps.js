@@ -12,7 +12,7 @@ function start2ps() {
     };
 
     const p2 = {
-        x: 1150,
+        x: 1130,
         y: 300,
         width: 70,
         height: 30,

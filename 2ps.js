@@ -59,11 +59,7 @@ function drawBullet(bullet) {
         updateBullets();
         requestAnimationFrame(gameLoop);
     }
-
-    drawp1();
-    drawp2();
-    drawBullets();
-    updateBullets();
+    
     gameLoop();
     requestAnimationFrame(gameLoop);
 }

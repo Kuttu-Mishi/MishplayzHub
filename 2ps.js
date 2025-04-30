@@ -3,8 +3,8 @@ function start2ps() {
     const ctx = canvas.getContext("2d");
 
     const p1 = {
-        x: canvas.width / 2 - 35,
-        y: canvas.height - 130,
+        x: 10,
+        y: 300,
         width: 70,
         height: 30,
         color: "red",
@@ -12,8 +12,8 @@ function start2ps() {
     };
 
     const p2 = {
-        x: canvas.width / 2 - 35,
-        y: canvas.height - 200,
+        x: 1150,
+        y: 300,
         width: 70,
         height: 30,
         color: "blue",

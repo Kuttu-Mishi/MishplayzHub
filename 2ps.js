@@ -41,9 +41,31 @@ function drawBullet(bullet) {
     ctx.fillRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
     ctx.strokeRect(bullet.x, bullet.y, bulletSize.width, bulletSize.height);
 
+    function drawBullets() {
+        bullets.forEach(drawBullet);
+    }
+
+    function updateBullets() {
+        bullets.forEach(bullet => {
+            bullet.y -= bulletSpeed;
+        });
+    }
+
+    function gameLoop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawp1();
+        drawp2();
+        drawBullets();
+        updateBullets();
+        requestAnimationFrame(gameLoop);
+    }
+
     drawp1();
     drawp2();
-    drawBullet();
+    drawBullets();
+    updateBullets();
+    gameLoop();
+    requestAnimationFrame(gameLoop);
 }
-start2ps();
+window.start2ps = start2ps();
 }

@@ -108,7 +108,7 @@ function update() {
   if (keys["d"] && player.x < canvas.width - player.width) player.x += player.speed;
 
   // Shooting
-  if (keys["w"] && Date.now() - (shoot.lastTime || 0) > 200) {
+  if (keys["w"] && Date.now() - (shoot.lastTime || 0) > 10) {
     shoot();
     shoot.lastTime = Date.now();
   }

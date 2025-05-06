@@ -108,7 +108,7 @@ function update() {
   if (keys["d"] && player.x < canvas.width - player.width) player.x += player.speed;
 
   // Shooting
-  if (keys["w"] && Date.now() - (shoot.lastTime || 0) > 10) {
+  if (keys["w"] && Date.now() - (shoot.lastTime || 0) > 1) {
     shoot();
     shoot.lastTime = Date.now();
   }
@@ -151,7 +151,7 @@ function update() {
 
   // Spawn new enemy every ~1 second
   enemySpawnTimer++;
-  if (enemySpawnTimer >= 100) {
+  if (enemySpawnTimer >= 1) {
     spawnEnemy();
     enemySpawnTimer = 0;
   }
